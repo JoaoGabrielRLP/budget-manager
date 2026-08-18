@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Painel de Despesas</title>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <p class="eyebrow">Resumo</p>
+          <h1>Despesas</h1>
+        </div>
+
+        <div class="summary-box highlight">
+          <span>Total geral</span>
+          <strong id="total-geral">R$ 0,00</strong>
+        </div>
+
+        <div class="summary-box">
+          <h2>Por categoria</h2>
+          <ul class="category-list">
+            <li>
+              <span>Alimento</span>
+              <strong id="total-alimento">R$ 0,00</strong>
+            </li>
+            <li>
+              <span>Transporte</span>
+              <strong id="total-transporte">R$ 0,00</strong>
+            </li>
+            <li>
+              <span>Lazer</span>
+              <strong id="total-lazer">R$ 0,00</strong>
+            </li>
+            <li>
+              <span>Saúde</span>
+              <strong id="total-saude">R$ 0,00</strong>
+            </li>
+            <li>
+              <span>Outros</span>
+              <strong id="total-outros">R$ 0,00</strong>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <main class="content">
+        <section class="card form-card">
+          <div class="section-header">
+            <p class="eyebrow">Cadastro</p>
+            <h2>Nova despesa</h2>
+          </div>
+
+          <form id="expense-form" novalidate>
+            <div class="field-group">
+              <label for="titulo">Título</label>
+              <input id="titulo" name="titulo" type="text" placeholder="Ex: Supermercado" />
+            </div>
+
+            <div class="field-row">
+              <div class="field-group">
+                <label for="valor">Valor</label>
+                <input id="valor" name="valor" type="number" min="0.01" step="0.01" placeholder="0,00" />
+              </div>
+
+              <div class="field-group">
+                <label for="categoria">Categoria</label>
+                <select id="categoria" name="categoria">
+                  <option value="">Selecione</option>
+                  <option value="Alimento">Alimento</option>
+                  <option value="Transporte">Transporte</option>
+                  <option value="Lazer">Lazer</option>
+                  <option value="Saúde">Saúde</option>
+                  <option value="Outros">Outros</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit">Adicionar despesa</button>
+            <p id="form-message" class="form-message" aria-live="polite"></p>
+          </form>
+        </section>
+
+        <section class="card list-card">
+          <div class="section-header">
+            <p class="eyebrow">Lista</p>
+            <h2>Despesas cadastradas</h2>
+          </div>
+
+          <ul id="expense-list" class="expense-list"></ul>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
